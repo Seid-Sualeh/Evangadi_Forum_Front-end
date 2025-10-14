@@ -1,0 +1,78 @@
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.notFoundContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px 10px;
+}
+
+.notFoundContainer h1 {
+  font-size: 6rem;
+  color: red;
+  animation: bounce 2s infinite;
+}
+
+.notFoundContainer h2 {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+.notFoundContainer p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.homeButton {
+  background-color: var(--blue-shade);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-bottom: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.homeButton:hover {
+  background-color: var(--primary-color);
+}
+
+.illustration {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  animation: float 3s ease-in-out infinite;
+}
+.illustration {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}

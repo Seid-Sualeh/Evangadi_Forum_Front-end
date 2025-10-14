@@ -1,0 +1,91 @@
+/* Base Footer Styles */
+.evangadi-footer {
+  background-color: #23262f;
+  background-color: #3a4459;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+/* Container to center content and manage layout */
+.footer-container {
+  width: 90vw;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin: 0 auto;
+}
+/* Logo Styling */
+.footer-logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 15px;
+}
+/* Styles for each column */
+.footer-column {
+flex: 1 1 30%;
+/* This shorthand property controls the flexibility of a flex item.
+   It sets three properties in order: flex-grow, flex-shrink, and flex-basis.
+   flex-grow: 1;   Allows the item to grow and take up available extra space (relative to other items' grow values). 
+   flex-shrink: 1;  Allows the item to shrink when necessary to fit within the container. 
+   flex-basis: 30%; Sets the item's initial or preferred size before any growing or shrinking occurs. */
+}
+
+/* Column Headings */
+.footer-heading {
+  font-size: 1.25rem;
+  margin: 0 auto;
+  font-weight: 600;
+}
+
+/* Links and Contact Items */
+.footer-link,
+.contact-item {
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #ffea;
+}
+
+.footer-link:hover {
+  color: #fff;
+}
+
+/* Social Icons Styling */
+.social-icons a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  margin-right: 15px;
+  font-size: 1.2rem;
+  border: 1px solid white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+
+  transition: background-color 0.5s;
+}
+
+.social-icons a:hover {
+  background-color: #ff6600;
+}
+
+/* ---------------------------------- */
+/* RESPONSIVENESS (Mobile/Tablet) */
+/* ---------------------------------- */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-logo {
+    width: 110px;
+  }
+
+}
