@@ -28,3 +28,6 @@ h6 {
   font-family: var(--header-font) ,sans-serif !important;
   
 }
+strong {
+ text-transform: uppercase;
+}

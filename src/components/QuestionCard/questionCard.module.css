@@ -3,16 +3,30 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  border: 1.5px solid var(--blue-shade);
+  /* border: 1.5px solid var(--blue-shade); */
   margin-bottom: 20px;
   border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5) !important;
   background-color: #ffffff;
   transition: transform 0.2s ease;
 }
 
 .question_holder:hover {
   transform: scale(1.01);
+   background-color: #f0f8ff;
+}
+.question_stats ,.question_stat{
+  color: white;
+  background-color:#FE9119 ;
+  border-radius: 5px;
+  padding: 3px;
+                    
+                   
+                 
+}
+.question_stat{
+   background-color:green;
+
 }
 
 /* User icon and name */
@@ -85,6 +99,153 @@
   gap: 20px;
 }
 
+
+
+
+
+/* ✅ NEW: Edit Container Styles */
+.editContainer {
+  width: 100%;
+}
+
+.editTitleInput {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 2px solid #e1e5e9;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-family: inherit;
+}
+
+.editDescriptionInput {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #e1e5e9;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 80px;
+  margin-bottom: 10px;
+}
+
+.editActions {
+  display: flex;
+  gap: 8px;
+}
+
+.saveButton {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.saveButton:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+.saveButton:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.cancelButton {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.cancelButton:hover:not(:disabled) {
+  background-color: #5a6268;
+}
+
+.cancelButton:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+.editButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.editButton:hover {
+  background-color: #0056b3;
+}
+
+/* Make sure the question link covers only title and description */
+.questionLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.questionLink:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Focus styles */
+.editTitleInput:focus,
+.editDescriptionInput:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+
+
+
+
+
+
+
+/* ✅ Make sure the question content is clickable */
+.questionContent {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.questionContent:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ✅ Ensure the entire card remains clickable */
+.question_holder {
+  cursor: pointer;
+}
+
+/* ✅ Edit button should not interfere with link */
+.editButton {
+  position: relative;
+  z-index: 10; /* Ensure it's above the link */
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .question_holder {
     flex-direction: column;

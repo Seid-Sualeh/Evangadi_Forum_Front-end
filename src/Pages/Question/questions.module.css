@@ -23,6 +23,7 @@
   outline: none;
   border: 1.5px solid var(--blue-shade) !important;
   font-size: 18px;
+  border-radius: 20px !important;
 }
 
 .search_question input:focus {
@@ -30,7 +31,7 @@
   border-bottom: 1.5px solid orange;
   outline: none;
   transition: all ease-in-out 0.3s;
-  color: orange;
+  color: var(--primary-color);
 }
 
 .no_questions {
@@ -64,14 +65,28 @@
 }
 
 .questionCount {
-    font-size: 1rem;
-    color: #6c757d; /* A subtle grey color */
-    margin-top: -10px; /* Pull it closer to the title */
-    margin-bottom: 20px;
-    font-weight: 500;
+  font-size: 1rem;
+  color: #6c757d; /* A subtle grey color */
+  margin-top: -10px; /* Pull it closer to the title */
+  margin-bottom: 20px;
+  font-weight: 500;
 }
 
+.search_question svg {
+  padding: 8px;
 
+  background-color: var(--blue-shade);
+  color: white;
+  height: 49px;
+
+  margin-left: -38px;
+  border-radius: 0 20px 20px 0 !important;
+
+  position: absolute;
+}
+.search_question svg:hover {
+  background-color: var(--primary-color);
+}
 
 .pagination_controls {
   display: flex;
@@ -79,7 +94,7 @@
   align-items: center;
   gap: 15px;
   margin: 20px 0;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 .pagination_controls span {
@@ -117,14 +132,6 @@
   box-shadow: none;
 }
 
-
-
-
-
-
-
-
-
 /* Responsive Design */
 @media (max-width: 768px) {
   .questions_grid {
@@ -139,5 +146,8 @@
   .search_question > input {
     font-size: 16px;
     padding: 8px 15px;
+  }
+  .search_question svg {
+     height: 45px;
   }
 }

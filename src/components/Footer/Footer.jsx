@@ -3,7 +3,7 @@ import { FaFacebookF, FaYoutube } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 import image from "../../Assets/Images/evangadi-logo-footer.png";
 import { Link } from "react-router-dom";
-import PrivacyPolicy from "../../Pages/PrivacyPolicy/PrivacyPolicy";
+
 
 const Footer = () => {
   return (

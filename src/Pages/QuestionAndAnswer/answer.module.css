@@ -52,13 +52,14 @@
 .answer_holder {
   display: flex;
   align-items: flex-start;
-  border: 1.5px solid var(--blue-shade);
+  /* border: 1.5px solid var(--blue-shade); */
   margin-bottom: 10px;
   border-radius: 6px;
   padding: 15px;
   gap: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5) !important;
   background-color: #fafafa;
+
   transition: all 0.3s ease;
 }
 
@@ -84,13 +85,73 @@
 .answerTextContainer {
   flex: 1;
 }
+.likeButton {
+  border: none;
+  color: white;
+  background-color: #fe9119;
+  border-radius: 5px;
+  padding: 3px;
+}
 
+
+
+
+
+
+
+.likeButton {
+  border: none;
+  color: white;
+  background-color: var(--blue-shade);
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.3s ease;
+} 
+
+/* Hover effect */
+.likeButton:hover {
+   background-color:var(--primary-color);
+
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.commentToggleBtn {
+  /* margin: 12px; */
+  border: none;
+  color: white;
+  background-color: green;
+  border-radius: 5px;
+  padding: 3px;
+}
 .answerText {
   font-size: 16px;
   color: #111;
   margin-bottom: 5px;
   line-height: 1.5;
+  
 }
+
 
 .answer_date {
   font-size: 13px;
@@ -98,7 +159,8 @@
 }
 
 /* Form Section */
-.answerFormTitle, .aiTitle {
+.answerFormTitle,
+.aiTitle {
   font-size: 1.2rem;
   margin-bottom: 10px;
   color: var(--blue-shade);
@@ -112,9 +174,29 @@
   color: var(--blue-shade);
   font-weight: bold;
   text-align: center;
+  font-size: 30px;
 }
 
-.answerInput, .aiInput {
+.questionPageLink:hover {
+  color: var(--primary-color);
+}
+.postCommentButton {
+  border: none;
+  color: white;
+
+  background-color: var(--blue-shade);
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0px;
+}
+.postCommentButton:hover {
+  background-color: #fc9b34;
+}
+.comment {
+  padding: 10px 5px !important;
+}
+.answerInput,
+.aiInput {
   width: 100%;
   min-height: 120px;
   margin-bottom: 10px;
@@ -125,12 +207,15 @@
   resize: none;
 }
 
-.answerInput:focus, .aiInput:focus {
+.answerInput:focus,
+.aiInput:focus {
   border: 2px solid black;
   transition: all 0.3s ease;
 }
 
-.postAnswerButton, .aiButton, .askAiButton {
+.postAnswerButton,
+.aiButton,
+.askAiButton {
   background-color: var(--blue-shade);
   color: white;
   border: none;
@@ -141,7 +226,9 @@
   transition: background-color 0.3s;
 }
 
-.postAnswerButton:hover, .aiButton:hover, .askAiButton:hover:not(:disabled) {
+.postAnswerButton:hover,
+.aiButton:hover,
+.askAiButton:hover:not(:disabled) {
   background-color: #fc9b34;
 }
 
@@ -172,13 +259,14 @@
   flex-wrap: wrap;
 }
 
-.userAnswerBox, .aiChatBox {
+.userAnswerBox,
+.aiChatBox {
   flex: 1;
   min-width: 320px;
   background: #ffffff;
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
 }
@@ -203,9 +291,15 @@
 }
 
 .aiMessage {
-  background-color: #f0f4ff;
+ background-color: #f9f9f9;
   border-left: 4px solid #1d4ed8;
   align-self: flex-start;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 15px 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
 }
 
 .userMessage {
@@ -220,12 +314,22 @@
   animation: blink 1s infinite;
   margin-right: 2px;
 }
-.typingDots span:nth-child(2) { animation-delay: 0.2s; }
-.typingDots span:nth-child(3) { animation-delay: 0.4s; }
+.typingDots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typingDots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
 
 @keyframes blink {
-  0%, 80%, 100% { opacity: 0; }
-  40% { opacity: 1; }
+  0%,
+  80%,
+  100% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
 }
 
 /* Input area */
@@ -245,27 +349,27 @@
 }
 
 /* AI Answer Container */
-.aiAnswerContainer {
-  background-color: #f9f9f9;
-  border-left: 5px solid #4caf50;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 15px 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: #333;
-}
+/*  */
 
 .aiAnswerContainer h4 {
   font-size: 1.1rem;
   margin: 8px 0 10px;
   font-weight: 700;
+ 
 }
 
-.aiAnswerContainer h4:nth-of-type(1) { color: #1d4ed8; }  /* Main Answer */
-.aiAnswerContainer h4:nth-of-type(2) { color: #f59e0b; }  /* Books */
-.aiAnswerContainer h4:nth-of-type(3) { color: #10b981; }  /* Videos */
-.aiAnswerContainer h4:nth-of-type(4) { color: #ef4444; }  /* Websites */
+.aiAnswerContainer h4:nth-of-type(1) {
+  color: #1d4ed8;
+} /* Main Answer */
+.aiAnswerContainer h4:nth-of-type(2) {
+  color: #f59e0b;
+} /* Books */
+.aiAnswerContainer h4:nth-of-type(3) {
+  color: #10b981;
+} /* Videos */
+.aiAnswerContainer h4:nth-of-type(4) {
+  color: #ef4444;
+} /* Websites */
 
 .aiAnswerContainer ul {
   margin: 5px 0 10px 20px;
@@ -293,4 +397,129 @@
   color: inherit;
   text-decoration: underline;
 }
-.aiAnswerContainer a:hover { color: #2563eb; }
+.aiAnswerContainer a:hover {
+  /* color: #2563eb; */
+}
+
+/* AI specific heading and lists */
+.aiHeading {
+  margin-top: 12px;
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.aiList {
+  list-style: none;
+  margin: 8px 0 12px 0;
+  padding: 0;
+}
+
+.aiListItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 6px 0;
+  border-radius: 6px;
+}
+
+.aiListItem span:first-child {
+  font-size: 1.05rem;
+}
+
+.aiListItem:hover {
+  background: rgba(37, 99, 235, 0.04);
+}
+
+
+
+
+/* Edit Container Styles */
+.editContainer {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.editTitleInput {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-family: inherit;
+}
+
+.editDescriptionInput,
+.editAnswerInput {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 120px;
+}
+
+.editActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.saveButton {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.saveButton:hover {
+  background-color: #218838;
+}
+
+.cancelButton {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.cancelButton:hover {
+  background-color: #5a6268;
+}
+
+.editButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.editButton:hover {
+  background-color: #0056b3;
+}
+
+/* Focus styles for better UX */
+.editTitleInput:focus,
+.editDescriptionInput:focus,
+.editAnswerInput:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
