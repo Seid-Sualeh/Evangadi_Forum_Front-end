@@ -182,7 +182,6 @@ FrontEnd/
 ---
 
 
-
 ## ⚡ Environment Variables
 
 Create a `.env` file in the `FrontEnd` directory:
@@ -191,6 +190,7 @@ Create a `.env` file in the `FrontEnd` directory:
 VITE_API_BASE_URL=http://localhost:5000/api
 VITE_GOOGLE_CLIENT_ID=your_google_client_id
 
+---
 
 ## 🧑‍💻 Author  
 
