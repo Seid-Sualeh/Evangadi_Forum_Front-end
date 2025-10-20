@@ -81,6 +81,7 @@ These resources appear below the question to help the asker and others learn mor
 
 If the user asks: **“What is React Context API?”**  
 
+
 AI Suggestions might include:  
 
 - **Definition:** “Context API allows data to be shared globally without prop drilling.”  
@@ -89,6 +90,106 @@ AI Suggestions might include:
 - **Books:** *Learning React*, *Fullstack React*, *React Up & Running*.  
 
 ---
+## 📂 Folder Structure
+
+
+FrontEnd/
+│
+├── node_modules/
+│
+├── src/
+│ ├── Assets/ # Images, icons, and static resources
+│ │
+│ ├── components/ # Reusable components
+│ │ ├── Footer/
+│ │ ├── Header/
+│ │ ├── Loader/
+│ │ ├── protectedRoutes/ # Auth-protected route wrapper
+│ │ └── QuestionCard/ # UI card for each question
+│ │
+│ ├── Layout/ # App layout structure
+│ │
+│ ├── Pages/ # All main pages
+│ │ ├── About/
+│ │ ├── AskQuestion/
+│ │ ├── AuthLayout/
+│ │ ├── ForgetPassword/
+│ │ ├── Home/
+│ │ ├── Login/
+│ │ ├── NotFound/
+│ │ ├── PrivacyPolicy/
+│ │ ├── Question/
+│ │ ├── QuestionAndAnswer/
+│ │ ├── ResetPassword/
+│ │ └── SignUp/
+│ │
+│ ├── routes/ # Centralized route configuration
+│ ├── utility/ # Helper functions and constants
+│ │
+│ ├── App.jsx # Root component
+│ ├── App.css
+│ ├── main.jsx # Application entry point
+│ └── index.css
+│
+├── .env # Frontend environment variables
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+└── vite.config.js # Vite configuration file
+
+
+
+
+
+
+---
+
+## 🚀 Core Features
+
+✅ **AI-Powered Assistance**
+- When a user asks a question, AI suggests:
+  - 🧾 Short definition or concept summary  
+  - 🎥 3 YouTube videos  
+  - 🌍 3 educational websites  
+  - 📘 3 recommended books  
+
+✅ **Forum Functionality**
+- Ask and answer questions  
+- Edit and delete your own questions or answers  
+- Like and comment on answers  
+- Display like and comment count  
+- Track question viewers and number of answers  
+- Filter questions by title  
+- Pagination (6 questions per page)  
+
+✅ **Authentication**
+- Email & Password registration/login  
+- Google Sign-up and Sign-in (OAuth)  
+- Forget and Reset Password  
+- Protected routes for logged-in users  
+
+✅ **Responsive UI**
+- Fully mobile-friendly with Bootstrap 5  
+- Dynamic navigation header and footer  
+- Loader animation while fetching data  
+
+✅ **Security**
+- JWT authentication stored securely  
+- AuthMiddleware protection for private pages  
+
+---
+
+
+
+## ⚡ Environment Variables
+
+Create a `.env` file in the `FrontEnd` directory:
+
+```env
+VITE_API_BASE_URL=http://localhost:5000/api
+VITE_GOOGLE_CLIENT_ID=your_google_client_id
 
 
 ## 🧑‍💻 Author  
