@@ -9,9 +9,9 @@ The project emphasizes user interactivity, security, and scalability, featuring 
 🚀 Key Features
 🧠 AI Integration
 
-Integrated AI system that provides definitions or explanations for each question.
+Integrated AI system that provides definitions or explanations for each question.and give suggestions 3 best books,3 youtube channels and 3 websites
 
-Uses backend AI API (e.g., Gemini, OpenAI, or Hugging Face) to suggest meanings or related concepts.
+Uses backend AI API (e.g., Gemini) to suggest meanings or related concepts.
 
 🙋‍♂️ Question & Answer System
 
@@ -47,7 +47,7 @@ If total questions > 6, the app automatically enables a “Next Page” feature 
 
 🔐 Authentication System
 
-Google Sign Up / Login via Firebase or Google OAuth.
+Google Sign Up / Login via  Google OAuth.
 
 Forget Password and Reset Password features with secure email link.
 
@@ -57,6 +57,18 @@ User sessions are managed with JWT and stored securely.
 
 Built with React, React Router, and Context API for state management.
 
-Responsive design using Bootstrap 5 and custom CSS.
+Responsive design using custom CSS.
 
 Clean, minimal, and mobile-friendly user interface.
+
+
+🧩 Tech Stack
+Layer	Technologies
+Frontend Framework	React.js Vite
+State Management	Context API and useReducer
+Styling	 Custom CSS, FontAwesome Icons
+Routing	React Router v6
+Authentication JWT
+AI Integration	Gemini API 
+Backend API	Node.js + Express (connected to MySQL)
+Hosting	Netlify 
