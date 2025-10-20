@@ -1,74 +1,108 @@
-🗣️ Evangadi Forum – Frontend
-📖 Overview
+# 🗣️ Evangadi Forum – Frontend  
 
-Evangadi Forum is a modern discussion platform designed to allow users to ask, answer, and explore questions in various topics.
-It’s built with React.js and integrated with AI assistance to provide intelligent definitions or explanations related to questions.
+## 📖 Overview  
+**Evangadi Forum** is a modern discussion platform built with **React.js** that allows users to ask, answer, and explore questions across various topics.  
+It features **AI-powered assistance** that automatically suggests **videos**, **websites**, and **books** related to the user’s question — helping learners explore topics deeply.  
 
-The project emphasizes user interactivity, security, and scalability, featuring authentication, comment systems, question filtering, pagination, and more.
+---
 
-🚀 Key Features
-🧠 AI Integration
+## 🚀 Key Features  
 
-Integrated AI system that provides definitions or explanations for each question.and give suggestions 3 best books,3 youtube channels and 3 websites
+### 🧠 AI Integration  
+- Integrated **AI system** that analyzes the question’s topic or keywords.  
+- Automatically provides **3 recommended videos**, **3 websites**, and **3 books** related to the question.  
+- Displays AI-generated **definitions or explanations** for better understanding.  
+- Designed to enhance user learning and engagement.  
 
-Uses backend AI API (e.g., Gemini) to suggest meanings or related concepts.
+### 🙋‍♂️ Question & Answer System  
+- Users can:
+  - **Ask questions**
+  - **Answer questions**
+- Each answer includes:
+  - 👍 Like count
+  - 💬 Comment count
+- Questions display:
+  - 👁️ Viewer count
+  - 💬 Number of answers  
 
-🙋‍♂️ Question & Answer System
+### ✏️ Editing and Permissions  
+- Only the **creator user** can **edit** or **delete** their own questions and answers.  
+- Changes update instantly for **online users**.  
 
-Users can ask and answer questions.
+### 🔍 Filtering & Search  
+- Filter questions by **title** or **keyword**.  
+- Optimized for fast and accurate search results.  
 
-Each answer supports:
+### 📄 Pagination  
+- Automatically loads **next pages** if total questions exceed 6.  
+- Smooth “Next Page” navigation for large forums.  
 
-👍 Like count
+### 🔐 Authentication  
+- **Google Sign Up / Login** (via   Google OAuth).  
+- Secure **JWT-based authentication**.  
+- Includes **Forget Password** and **Reset Password** features.  
 
-💬 Comment count
+### 💬 User Experience  
+- Responsive and modern design using **custom CSS**.  
+- Consistent navigation with **React Router v6**.  
+- Dynamic updates using **React Context API**.  
 
-Questions show:
+---
 
-👁️ Viewer count
+## 🧩 Tech Stack  
 
-🧑‍💻 Answer count
+| Layer | Technologies |
+|-------|---------------|
+| **Frontend** | React.js, Vite, React Router, Context API |
+| **Styling** |  FontAwesome, Custom CSS |
+| **AI Integration** | Gemini |
+| **Auth** |  Google OAuth + JWT |
+| **Backend API** | Node.js + Express + MySQL |
+| **Deployment** | Render (Backend) + Netlify/Vercel (Frontend) |
 
-✏️ Editing and Permissions
+---
 
-Only the creator user can edit or delete their questions and answers.
+## 🧠 How the AI Suggestion Works  
 
-Real-time update for online users when questions or answers are edited.
+When a user asks a question, it is sent to the **AI endpoint**.  
 
-🔍 Filtering & Search
+The AI analyzes the topic and returns:  
 
-Filter questions by title or keyword.
+- 🧾 A brief **definition or explanation**.  
+- 🎥 **3 related videos** (YouTube links).  
+- 🌍 **3 educational websites**.  
+- 📘 **3 recommended books**.  
 
-Easy navigation and quick results using efficient filtering logic.
+These resources appear below the question to help the asker and others learn more.  
 
-📄 Pagination
+---
 
-If total questions > 6, the app automatically enables a “Next Page” feature for smooth browsing.
+### 🧩 Example  
 
-🔐 Authentication System
+If the user asks: **“What is React Context API?”**  
 
-Google Sign Up / Login via  Google OAuth.
+AI Suggestions might include:  
 
-Forget Password and Reset Password features with secure email link.
+- **Definition:** “Context API allows data to be shared globally without prop drilling.”  
+- **Videos:** Traversy Media, Codevolution, Programming with Mosh.  
+- **Websites:** react.dev, w3schools.com, freecodecamp.org.  
+- **Books:** *Learning React*, *Fullstack React*, *React Up & Running*.  
 
-User sessions are managed with JWT and stored securely.
-
-🌐 Modern UI/UX
-
-Built with React, React Router, and Context API for state management.
-
-Responsive design using custom CSS.
-
-Clean, minimal, and mobile-friendly user interface.
+---
 
 
-🧩 Tech Stack
-Layer	Technologies
-Frontend Framework	React.js Vite
-State Management	Context API and useReducer
-Styling	 Custom CSS, FontAwesome Icons
-Routing	React Router v6
-Authentication JWT
-AI Integration	Gemini API 
-Backend API	Node.js + Express (connected to MySQL)
-Hosting	Netlify 
+## 🧑‍💻 Author  
+
+**Seid Sualeh Mohammed**  
+Full-stack Developer |AI Integration Enthusiast  
+
+🌐 [LinkedIn](https://LinkedIn/in/seid-sualeh) | 💻 [Portfolio](https://seidsualeh.netlify.app) | 📧 plshireseid@gmail.com 
+
+---
+
+
+
+
+
+
+
