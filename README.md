@@ -180,7 +180,14 @@ FrontEnd/
 - AuthMiddleware protection for private pages  
 
 ---
+## 🧑‍💻 Author  
 
+**Seid Sualeh Mohammed**  
+Full-stack Developer |AI Integration Enthusiast  
+
+🌐 [LinkedIn](https://LinkedIn/in/seid-sualeh) | 💻 [Portfolio](https://seidsualeh.netlify.app) | 📧 plshireseid@gmail.com 
+
+---
 
 ## ⚡ Environment Variables
 
@@ -192,14 +199,7 @@ VITE_GOOGLE_CLIENT_ID=your_google_client_id
 
 ---
 
-## 🧑‍💻 Author  
 
-**Seid Sualeh Mohammed**  
-Full-stack Developer |AI Integration Enthusiast  
-
-🌐 [LinkedIn](https://LinkedIn/in/seid-sualeh) | 💻 [Portfolio](https://seidsualeh.netlify.app) | 📧 plshireseid@gmail.com 
-
----
 
 
 
