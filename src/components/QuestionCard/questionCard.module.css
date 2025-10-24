@@ -13,20 +13,17 @@
 
 .question_holder:hover {
   transform: scale(1.01);
-   background-color: #f0f8ff;
+  background-color: #f0f8ff;
 }
-.question_stats ,.question_stat{
+.question_stats,
+.question_stat {
   color: white;
-  background-color:#FE9119 ;
+  background-color: #fe9119;
   border-radius: 5px;
   padding: 3px;
-                    
-                   
-                 
 }
-.question_stat{
-   background-color:green;
-
+.question_stat {
+  background-color: green;
 }
 
 /* User icon and name */
@@ -73,7 +70,9 @@
   font-size: 18px;
   color: #212529;
 }
-
+.question_title:hover {
+  color: var(--primary-color);
+}
 .question_description {
   font-size: 16px;
   line-height: 1.5;
@@ -98,10 +97,6 @@
   grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
   gap: 20px;
 }
-
-
-
-
 
 /* ✅ NEW: Edit Container Styles */
 .editContainer {
@@ -213,13 +208,6 @@
   border-color: #007bff;
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
-
-
-
-
-
-
-
 
 /* ✅ Make sure the question content is clickable */
 .questionContent {

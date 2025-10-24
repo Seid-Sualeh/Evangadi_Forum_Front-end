@@ -117,7 +117,7 @@ function Question() {
                     question_date={question.createdAt}
                     views={question.views}
                     answer_count={question.answer_count}
-                    onQuestionUpdate={handleQuestionUpdate} // ✅ ADD THIS - pass callback
+                    onQuestionUpdate={handleQuestionUpdate}
                   />
                 ))}
               </div>
