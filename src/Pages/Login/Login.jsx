@@ -250,6 +250,9 @@ function Login({ onSwitch }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log("Login data:", formData);
+    
+
       const response = await axiosInstance.post("/user/login", {
         usernameOrEmail: formData.usernameOrEmail,
         password: formData.password,
