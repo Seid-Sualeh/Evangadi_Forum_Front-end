@@ -12,7 +12,10 @@ function Home() {
   const [onlineCount, setOnlineCount] = useState(0);
 
   useEffect(() => {
-    const socket = io("http://localhost:5001", {
+    // ✅ Connect to backend socket using environment variable
+    const backendURL =
+      import.meta.env.VITE_API_BASE_URL || "http://localhost:5001";
+    const socket = io(backendURL, {
       transports: ["websocket"],
       withCredentials: true,
     });
@@ -25,6 +28,7 @@ function Home() {
       setOnlineCount(count);
     });
 
+    // cleanup
     return () => socket.disconnect();
   }, []);
 
