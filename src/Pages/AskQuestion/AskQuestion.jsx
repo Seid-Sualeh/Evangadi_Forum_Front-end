@@ -45,8 +45,12 @@ function AskQuestion() {
 
     const title = titleDom.current.value;
     const description = descriptionDom.current.value;
+<<<<<<< HEAD
     const userid = userId;
     const tag = "General";
+=======
+    // Server derives userid from JWT; no need to send it from client
+>>>>>>> 8e9e66c30fd2590304589a700bd2b2352a94b84a
 
     const token = localStorage.getItem("Evangadi_Forum");
 
@@ -61,8 +65,13 @@ function AskQuestion() {
     try {
       const response = await axiosInstance.post(
         "/question",
+<<<<<<< HEAD
         { userid, title, description, tag },
         { headers: { Authorization: `Bearer ${token}` } } // attach JWT token
+=======
+        { title, description },
+        { headers: { Authorization: `Bearer ${token}` } }
+>>>>>>> 8e9e66c30fd2590304589a700bd2b2352a94b84a
       );
 
       if (response.status === 201) {
@@ -76,7 +85,14 @@ function AskQuestion() {
       } else {
         await Swal.fire({
           title: "Error",
+<<<<<<< HEAD
           text: response.data.msg || "Failed to create question",
+=======
+          text:
+            response.data?.message ||
+            response.data?.msg ||
+            "Failed to create question",
+>>>>>>> 8e9e66c30fd2590304589a700bd2b2352a94b84a
           icon: "error",
         });
       }
@@ -85,6 +101,10 @@ function AskQuestion() {
       await Swal.fire({
         title: "Error",
         text:
+<<<<<<< HEAD
+=======
+          error.response?.data?.message ||
+>>>>>>> 8e9e66c30fd2590304589a700bd2b2352a94b84a
           error.response?.data?.msg ||
           "Failed to create question. Try again later",
         icon: "error",
@@ -157,4 +177,7 @@ function AskQuestion() {
 }
 
 export default AskQuestion;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8e9e66c30fd2590304589a700bd2b2352a94b84a
