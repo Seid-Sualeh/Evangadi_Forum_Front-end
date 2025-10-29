@@ -1,6 +1,3 @@
-
-
-
 import { useContext, useRef, useEffect } from "react";
 import classes from "./askQuestion.module.css";
 import { axiosInstance } from "../../utility/axios.js";
@@ -45,8 +42,7 @@ function AskQuestion() {
 
     const title = titleDom.current.value;
     const description = descriptionDom.current.value;
-    const userid = userId;
-    const tag = "General";
+    // Server derives userid from JWT; no need to send it from client
 
     const token = localStorage.getItem("Evangadi_Forum");
 
@@ -61,8 +57,8 @@ function AskQuestion() {
     try {
       const response = await axiosInstance.post(
         "/question",
-        { userid, title, description, tag },
-        { headers: { Authorization: `Bearer ${token}` } } // attach JWT token
+        { title, description },
+        { headers: { Authorization: `Bearer ${token}` } }
       );
 
       if (response.status === 201) {
@@ -76,7 +72,10 @@ function AskQuestion() {
       } else {
         await Swal.fire({
           title: "Error",
-          text: response.data.msg || "Failed to create question",
+          text:
+            response.data?.message ||
+            response.data?.msg ||
+            "Failed to create question",
           icon: "error",
         });
       }
@@ -85,6 +84,7 @@ function AskQuestion() {
       await Swal.fire({
         title: "Error",
         text:
+          error.response?.data?.message ||
           error.response?.data?.msg ||
           "Failed to create question. Try again later",
         icon: "error",
@@ -157,4 +157,3 @@ function AskQuestion() {
 }
 
 export default AskQuestion;
-
