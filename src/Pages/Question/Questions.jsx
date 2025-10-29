@@ -17,18 +17,27 @@ function Question() {
 
   useEffect(() => {
     setLoading(true);
-    axiosInstance.get("/question").then((res) => {
-      console.log("Questions API Response:", res.data.message); // Debug: check if userid exists
-      setQuestions(res.data.message);
-      setLoading(false);
-    });
+    axiosInstance
+      .get("/question")
+      .then((res) => {
+        console.log("Questions API Response:", res.data.message); // Debug: check if userid exists
+        // ✅ FIX: Ensure we always set an array, even if API returns non-array data
+        const questionsData = res.data.message;
+        setQuestions(Array.isArray(questionsData) ? questionsData : []);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching questions:", error);
+        setQuestions([]); // ✅ FIX: Set empty array on error
+        setLoading(false);
+      });
   }, []);
 
   useEffect(() => {
     setCurrentPage(1);
   }, [searchQuery]);
 
-  // ✅ NEW: Handle question update from child component
+  // ✅ Handle question update from child component
   const handleQuestionUpdate = (questionId, newTitle, newDescription) => {
     setQuestions((prevQuestions) =>
       prevQuestions.map((question) =>
@@ -39,19 +48,22 @@ function Question() {
     );
   };
 
-  const filteredQuestions = questions.filter((question) => {
-    const titleMatches = question.title
-      .toLowerCase()
-      .includes(searchQuery.toLowerCase());
-    const descriptionMatches = question.description
-      .toLowerCase()
-      .includes(searchQuery.toLowerCase());
-    const userNameMatches = question.username
-      ?.toLowerCase()
-      .includes(searchQuery.toLowerCase());
+  // ✅ FIX: Safe filtering with array check and optional chaining
+  const filteredQuestions = (Array.isArray(questions) ? questions : []).filter(
+    (question) => {
+      if (!question) return false; // ✅ Additional safety check
 
-    return titleMatches || descriptionMatches || userNameMatches;
-  });
+      const searchTerm = searchQuery.toLowerCase();
+      const titleMatches =
+        question.title?.toLowerCase().includes(searchTerm) || false;
+      const descriptionMatches =
+        question.description?.toLowerCase().includes(searchTerm) || false;
+      const userNameMatches =
+        question.username?.toLowerCase().includes(searchTerm) || false;
+
+      return titleMatches || descriptionMatches || userNameMatches;
+    }
+  );
 
   const totalPages = Math.ceil(filteredQuestions.length / QUESTIONS_PER_PAGE);
   const startIndex = (currentPage - 1) * QUESTIONS_PER_PAGE;
