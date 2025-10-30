@@ -42,7 +42,6 @@ function AskQuestion() {
 
     const title = titleDom.current.value;
     const description = descriptionDom.current.value;
-    const userid = userId;
     const tag = "General";
 
     const token = localStorage.getItem("Evangadi_Forum");
@@ -55,10 +54,18 @@ function AskQuestion() {
       }).then(() => navigate("/auth"));
     }
 
+    if (!user || !user.userid) {
+      return Swal.fire({
+        title: "Error",
+        text: "Unable to get user ID. Please log in again.",
+        icon: "error",
+      }).then(() => navigate("/auth"));
+    }
+
     try {
       const response = await axiosInstance.post(
         "question",
-        { userid, title, description, tag },
+        { userid: user.userid, title, description, tag },
         { headers: { Authorization: `Bearer ${token}` } } // attach JWT token
       );
 
