@@ -1,6 +1,3 @@
-
-
-
 import { useContext, useRef, useEffect } from "react";
 import classes from "./askQuestion.module.css";
 import { axiosInstance } from "../../utility/axios.js";
@@ -60,7 +57,7 @@ function AskQuestion() {
 
     try {
       const response = await axiosInstance.post(
-        "/question",
+        "question",
         { userid, title, description, tag },
         { headers: { Authorization: `Bearer ${token}` } } // attach JWT token
       );

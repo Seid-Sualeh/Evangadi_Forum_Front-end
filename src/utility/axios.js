@@ -6,21 +6,13 @@
 //   //local endpoint reference
 //   baseURL: `http://localhost:${serverPort}/api/v1`,
 
-  
 // });
-
-
 
 // const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 // export const axiosInstance = axios.create({
 //   // Use the environment variable for the base URL
 //   baseURL: `${API_BASE_URL}/api/v1`,
 // });
-
-
-
-
-
 
 import axios from "axios";
 
@@ -34,7 +26,7 @@ import axios from "axios";
 
 // axiosInstance.interceptors.request.use((config) => {
 //   const token = localStorage.getItem("Evangadi_Forum");
- 
+
 //   if (token) {
 //     config.headers.Authorization = `Bearer ${token}`;
 //   }
@@ -50,13 +42,15 @@ import axios from "axios";
 //   return config;
 // });
 
+function withApiPrefix(url) {
+  if (!url) return "http://localhost:5000/api/v1";
+  // Trim trailing slashes
+  const trimmed = url.replace(/\/$/, "");
+  if (/\/api\/v1$/.test(trimmed)) return trimmed; // already has prefix
+  return `${trimmed}/api/v1`;
+}
 
-
-
-
-const baseURL =
-  import.meta.env.VITE_API_BASE_URL ||
-  "http://localhost:5000/api/v1";
+const baseURL = withApiPrefix(import.meta.env.VITE_API_BASE_URL);
 
 export const axiosInstance = axios.create({
   baseURL,
