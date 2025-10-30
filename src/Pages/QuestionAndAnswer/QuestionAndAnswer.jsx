@@ -151,7 +151,56 @@ function QuestionAndAnswer() {
       answer: answer,
     });
 
+    // try {
+    //   const response = await axiosInstance.post(
+    //     "answer",
+    //     { userid: userId, questionid: questionUuid, answer },
+    //     { headers: { Authorization: `Bearer ${token}` } }
+    //   );
+
+    //   if (response.status === 201) {
+    //     Swal.fire({
+    //       title: "Success!",
+    //       text: "Answer submitted successfully!",
+    //       icon: "success",
+    //     });
+
+    //     // Fetch updated question
+    //     const updatedQuestion = await axiosInstance.get(
+    //       `question/${questionUuid}`
+    //     );
+    //     setQuestionDetails(updatedQuestion.data);
+
+    //     // also fetch likes for new answers
+    //     const answers = updatedQuestion.data.answers || [];
+    //     if (answers.length > 0) {
+    //       const likePromises = answers.map((a) =>
+    //         axiosInstance
+    //           .get(`like/${a.answerid}`)
+    //           .then((r) => ({ id: a.answerid, count: r.data.likeCount ?? 0 }))
+    //           .catch(() => ({ id: a.answerid, count: 0 }))
+    //       );
+    //       const likeResults = await Promise.all(likePromises);
+    //       const likeMap = {};
+    //       likeResults.forEach((lr) => (likeMap[lr.id] = lr.count));
+    //       setLikeCounts(likeMap);
+    //     }
+
+    //     // Clear the textarea
+    //     answerInput.current.value = "";
+    //   }
+    // } catch (error) {
+    //   console.error(error);
+    //   Swal.fire({
+    //     title: "Error",
+    //     text: error.response?.data?.message || "Failed to post answer.",
+    //     icon: "error",
+    //   });
+    // }
+
     try {
+      console.log({ userid: userId, questionid: questionUuid, answer, token });
+
       const response = await axiosInstance.post(
         "answer",
         { userid: userId, questionid: questionUuid, answer },
@@ -171,7 +220,7 @@ function QuestionAndAnswer() {
         );
         setQuestionDetails(updatedQuestion.data);
 
-        // also fetch likes for new answers
+        // Fetch likes for each answer
         const answers = updatedQuestion.data.answers || [];
         if (answers.length > 0) {
           const likePromises = answers.map((a) =>
@@ -186,17 +235,14 @@ function QuestionAndAnswer() {
           setLikeCounts(likeMap);
         }
 
-        // Clear the textarea
+        // Clear textarea
         answerInput.current.value = "";
       }
-    } catch (error) {
-      console.error(error);
-      Swal.fire({
-        title: "Error",
-        text: error.response?.data?.message || "Failed to post answer.",
-        icon: "error",
-      });
+    } catch (err) {
+      console.error("❌ Error posting answer:", err);
+      Swal.fire("Error", "Could not post answer", "error");
     }
+
   };
 
   // Truncate text

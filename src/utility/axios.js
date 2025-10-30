@@ -14,7 +14,7 @@
 //   baseURL: `${API_BASE_URL}/api/v1`,
 // });
 
-import axios from "axios";
+
 
 // // Use environment variable for backend URL
 // const baseURL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api/v1";
@@ -150,11 +150,7 @@ axiosInstance.interceptors.request.use(
 axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
-    console.error(
-      "❌ Response error:",
-      error.response?.status,
-      error.response?.data
-    );
+    console.error("❌ Response error:", error.response?.status, error.response?.data);
 
     if (error.response?.status === 401) {
       console.warn("🔄 Token invalid or expired. Logging out...");
