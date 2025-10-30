@@ -60,7 +60,7 @@ function Signup({ onSwitch }) {
     }
 
     try {
-      const response = await axiosInstance.post("/user/register", {
+      const response = await axiosInstance.post("user/register", {
         username: formData.username,
         firstname: formData.firstName,
         lastname: formData.lastName,
@@ -76,7 +76,7 @@ function Signup({ onSwitch }) {
           confirmButtonText: "OK",
         });
 
-        const loginResponse = await axiosInstance.post("/user/login", {
+        const loginResponse = await axiosInstance.post("user/login", {
           usernameOrEmail: formData.email,
           password: formData.password,
         });
@@ -106,7 +106,7 @@ function Signup({ onSwitch }) {
       const { name, email, sub } = decoded;
 
       // Send to backend for registration/login
-      const res = await axiosInstance.post("/user/google-login", {
+      const res = await axiosInstance.post("user/google-login", {
         email,
         username: name.replace(/\s/g, "").toLowerCase(),
         googleId: sub,

@@ -201,15 +201,6 @@
 
 // export default Login;
 
-
-
-
-
-
-
-
-
-
 import { useState } from "react";
 import { axiosInstance } from "../../utility/axios.js";
 import classes from "./login.module.css";
@@ -250,11 +241,11 @@ function Login({ onSwitch }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axiosInstance.post("/user/login", {
+      const response = await axiosInstance.post("user/login", {
         usernameOrEmail: formData.usernameOrEmail,
         password: formData.password,
       });
-console.log("Token from backend:", response.data.token);
+      console.log("Token from backend:", response.data.token);
 
       localStorage.setItem("Evangadi_Forum", response.data.token);
       setSuccess("Login successful! Redirecting...");
@@ -287,7 +278,7 @@ console.log("Token from backend:", response.data.token);
       const decoded = jwtDecode(credentialResponse.credential);
       console.log("Google user:", decoded);
 
-      const response = await axiosInstance.post("/user/google-login", {
+      const response = await axiosInstance.post("user/google-login", {
         email: decoded.email,
         username: decoded.name,
         googleId: decoded.sub,
@@ -398,5 +389,3 @@ console.log("Token from backend:", response.data.token);
 }
 
 export default Login;
-
-
