@@ -54,7 +54,7 @@ function QuestionCard({
     try {
       const token = localStorage.getItem("Evangadi_Forum");
       await axiosInstance.put(
-        `/question/${id}`, // ✅ Use the id prop (which is now UUID)
+        `question/${id}`, // API calls
         {
           title: editTitle,
           description: editDescription,

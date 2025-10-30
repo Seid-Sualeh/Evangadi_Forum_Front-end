@@ -19,10 +19,10 @@ function App() {
       }
 
       const userData = await axiosInstance
-        .get("/user/check", { headers: { Authorization: "Bearer " + token } })
+        .get("user/check", { headers: { Authorization: "Bearer " + token } })
         .then((response) => response.data);
       console.log(userData);
-      setUser(userData); 
+      setUser(userData);
     } catch (error) {
       console.log(error);
       navigate("/auth");

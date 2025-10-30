@@ -146,24 +146,7 @@
 //   );
 // }
 
-
 // export default Question;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 import { useEffect, useState, useContext } from "react";
 import styles from "./questions.module.css";
@@ -186,7 +169,7 @@ function Question() {
   useEffect(() => {
     setLoading(true);
     axiosInstance
-      .get("/question")
+      .get("question")
       .then((res) => {
         console.log("Questions API Response:", res.data);
 
@@ -330,4 +313,3 @@ function Question() {
 }
 
 export default Question;
-

@@ -51,7 +51,7 @@ function QuestionAndAnswer() {
     const fetchQuestion = async () => {
       try {
         setLoading(true);
-        const response = await axiosInstance.get(`/question/${questionUuid}`);
+        const response = await axiosInstance.get(`question/${questionUuid}`);
         setQuestionDetails(response.data);
 
         // after getting answers, fetch like counts for each answer
@@ -59,7 +59,7 @@ function QuestionAndAnswer() {
         if (answers.length > 0) {
           const likePromises = answers.map((a) =>
             axiosInstance
-              .get(`/like/${a.answerid}`)
+              .get(`like/${a.answerid}`)
               .then((r) => ({ id: a.answerid, count: r.data.likeCount ?? 0 }))
               .catch(() => ({ id: a.answerid, count: 0 }))
           );
@@ -99,13 +99,13 @@ function QuestionAndAnswer() {
 
     try {
       await axiosInstance.put(
-        `/answer/${answerid}`,
+        `answer/${answerid}`,
         { answer: editAnswerText },
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
       // Refresh question data
-      const response = await axiosInstance.get(`/question/${questionUuid}`);
+      const response = await axiosInstance.get(`question/${questionUuid}`);
       setQuestionDetails(response.data);
       setEditingAnswerId(null);
       setEditAnswerText("");
@@ -153,7 +153,7 @@ function QuestionAndAnswer() {
 
     try {
       const response = await axiosInstance.post(
-        "/answer",
+        "answer",
         { userid: userId, questionid: questionUuid, answer },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -167,7 +167,7 @@ function QuestionAndAnswer() {
 
         // Fetch updated question
         const updatedQuestion = await axiosInstance.get(
-          `/question/${questionUuid}`
+          `question/${questionUuid}`
         );
         setQuestionDetails(updatedQuestion.data);
 
@@ -176,7 +176,7 @@ function QuestionAndAnswer() {
         if (answers.length > 0) {
           const likePromises = answers.map((a) =>
             axiosInstance
-              .get(`/like/${a.answerid}`)
+              .get(`like/${a.answerid}`)
               .then((r) => ({ id: a.answerid, count: r.data.likeCount ?? 0 }))
               .catch(() => ({ id: a.answerid, count: 0 }))
           );
@@ -226,7 +226,7 @@ function QuestionAndAnswer() {
   // ---------- COMMENTS HANDLERS ----------
   const fetchCommentsForAnswer = async (answerid) => {
     try {
-      const res = await axiosInstance.get(`/comment/${answerid}`);
+      const res = await axiosInstance.get(`comment/${answerid}`);
       setComments((prev) => ({ ...prev, [answerid]: res.data }));
     } catch (err) {
       console.error("Error fetching comments:", err);
@@ -259,7 +259,7 @@ function QuestionAndAnswer() {
 
     try {
       await axiosInstance.post(
-        "/comment",
+        "comment",
         { answerid, userid: userId, comment: commentText },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -291,12 +291,12 @@ function QuestionAndAnswer() {
 
     try {
       await axiosInstance.post(
-        "/like",
+        "like",
         { answerid, userid: userId },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       // fetch updated like count
-      const res = await axiosInstance.get(`/like/${answerid}`);
+      const res = await axiosInstance.get(`like/${answerid}`);
       setLikeCounts((prev) => ({
         ...prev,
         [answerid]: res.data.likeCount ?? 0,
