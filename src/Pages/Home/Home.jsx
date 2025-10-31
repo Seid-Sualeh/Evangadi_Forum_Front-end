@@ -13,7 +13,7 @@ function Home() {
 
   useEffect(() => {
     // ✅ Connect to backend socket
-    const socket = io("http://localhost:5000", {
+    const socket = io("https://evangadi-forum-backend-gules.vercel.app", {
       transports: ["websocket"],
       withCredentials: true,
     });
