@@ -20,15 +20,24 @@ function Home() {
 
     socket.on("connect", () => {
       console.log("Connected to socket server ✅");
+      // ✅ Register user with their username after connection
+      if (user?.username) {
+        socket.emit("registerUser", user.username);
+      }
     });
 
-    socket.on("onlineUsers", (count) => {
-      setOnlineCount(count);
+    // ✅ Fix: Extract count from the data object
+    socket.on("onlineUsers", (data) => {
+      setOnlineCount(data.count); // Access the count property
+    });
+
+    socket.on("disconnect", () => {
+      console.log("Disconnected from socket server");
     });
 
     // cleanup
     return () => socket.disconnect();
-  }, []);
+  }, [user?.username]); // Add user.username as dependency
 
   return (
     <Layout>
@@ -36,7 +45,7 @@ function Home() {
         <div className={styles.welcome_top}>
           Welcome back, <strong>{userName}</strong> 👋
           <p className={styles.online_info}>
-            🟢 {onlineCount} user{onlineCount !== 1 ? "s" : ""} online 
+            🟢 {onlineCount} user{onlineCount !== 1 ? "s" : ""} online
           </p>
         </div>
 
