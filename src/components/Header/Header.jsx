@@ -10,10 +10,19 @@ function Header() {
   const { user } = useContext(UserState);
   const userId = user?.userid;
 
+  // const handleSignOut = () => {
+  //   localStorage.removeItem("Evangadi_Forum"); // remove auth token
+  //   window.location.replace("/auth"); // redirect to login
+  // };
+
+  const { setUser } = useContext(UserState);
+
   const handleSignOut = () => {
-    localStorage.removeItem("Evangadi_Forum"); // remove auth token
-    window.location.replace("/auth"); // redirect to login
+    localStorage.removeItem("Evangadi_Forum"); // remove token
+    setUser({}); // clear context immediately
+    window.location.href = "/auth"; // hard redirect (not replace)
   };
+
 
   return (
     <>
