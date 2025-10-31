@@ -12,32 +12,35 @@ function Home() {
   const [onlineCount, setOnlineCount] = useState(0);
 
   useEffect(() => {
+    // ✅ Auto-detect backend URL (works for both local & deployed)
+    const backendURL =
+      import.meta.env.MODE === "development"
+        ? "http://localhost:5000"
+        : "https://evangadi-forum-backend-gules.vercel.app";
+
     // ✅ Connect to backend socket
-    const socket = io("https://evangadi-forum-backend-gules.vercel.app", {
-      transports: ["websocket"],
+    const socket = io(backendURL, {
+      transports: ["polling"], // more stable for some setups
       withCredentials: true,
     });
 
     socket.on("connect", () => {
-      console.log("Connected to socket server ✅");
-      // ✅ Register user with their username after connection
-      if (user?.username) {
-        socket.emit("registerUser", user.username);
-      }
+      console.log("✅ Connected to socket server");
+      socket.emit("registerUser", userName); // send username to backend
     });
 
-    // ✅ Fix: Extract count from the data object
+    // ✅ Listen for online user updates
     socket.on("onlineUsers", (data) => {
-      setOnlineCount(data.count); // Access the count property
-    });
-
-    socket.on("disconnect", () => {
-      console.log("Disconnected from socket server");
+      // backend sends { count, users }
+      console.log("🟢 Online users update:", data);
+      setOnlineCount(data.count || 0);
     });
 
     // cleanup
-    return () => socket.disconnect();
-  }, [user?.username]); // Add user.username as dependency
+    return () => {
+      socket.disconnect();
+    };
+  }, [userName]);
 
   return (
     <Layout>
