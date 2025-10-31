@@ -36,7 +36,7 @@ function Home() {
         <div className={styles.welcome_top}>
           Welcome back, <strong>{userName}</strong> 👋
           <p className={styles.online_info}>
-            🟢 {onlineCount} users{onlineCount !== 1 ? "s" : ""} online 
+            🟢 {onlineCount} user{onlineCount !== 1 ? "s" : ""} online 
           </p>
         </div>
 
