@@ -226,10 +226,10 @@ function QuestionAndAnswer() {
   // ---------- COMMENTS HANDLERS ----------
   const fetchCommentsForAnswer = async (answerid) => {
     try {
-      const res = await axiosInstance.get(`comment/${answerid}`);
+      const res = await axiosInstance.get(`/comments/${answerid}`); // ✅ leading slash
       setComments((prev) => ({ ...prev, [answerid]: res.data }));
     } catch (err) {
-      console.error("Error fetching comments:", err);
+      console.error("Error fetching comments:", err.response?.data || err);
       setComments((prev) => ({ ...prev, [answerid]: [] }));
     }
   };
@@ -259,13 +259,15 @@ function QuestionAndAnswer() {
 
     try {
       await axiosInstance.post(
-        "comment",
+        "/comments", // ✅ leading slash
         { answerid, userid: userId, comment: commentText },
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
       // refresh comments
       await fetchCommentsForAnswer(answerid);
+
+      // update local answer comment_count
       setQuestionDetails((prev) => ({
         ...prev,
         answers: prev.answers.map((a) =>
@@ -276,7 +278,7 @@ function QuestionAndAnswer() {
       }));
       input.value = "";
     } catch (err) {
-      console.error("Error posting comment:", err);
+      console.error("Error posting comment:", err.response?.data || err);
       Swal.fire("Error", "Failed to post comment", "error");
     }
   };
@@ -291,18 +293,19 @@ function QuestionAndAnswer() {
 
     try {
       await axiosInstance.post(
-        "like",
+        "/likes", // ✅ leading slash
         { answerid, userid: userId },
         { headers: { Authorization: `Bearer ${token}` } }
       );
+
       // fetch updated like count
-      const res = await axiosInstance.get(`like/${answerid}`);
+      const res = await axiosInstance.get(`/likes/${answerid}`); // ✅ leading slash
       setLikeCounts((prev) => ({
         ...prev,
         [answerid]: res.data.likeCount ?? 0,
       }));
     } catch (err) {
-      console.error("Error toggling like:", err);
+      console.error("Error toggling like:", err.response?.data || err);
       Swal.fire("Error", "Failed to toggle like", "error");
     }
   };
